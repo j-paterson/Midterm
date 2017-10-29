@@ -38,7 +38,7 @@ contract Queue {
 
 	/* Returns the address of the person in the front of the queue */
 	function getFirst() constant returns(address) {
-		if(currentSize > 0){
+		if (currentSize > 0){
 			return participantsList[0].a;
 		}
 		return address(0);
@@ -49,7 +49,7 @@ contract Queue {
 	 * If person is not in line, returns 0.
 	 */
 	function checkPlace() constant returns(uint8) {
-		for(uint8 i = 0; i < currentSize; i++) {
+		for (uint8 i = 0; i < currentSize; i++) {
 			if(participantsList[i].a  == msg.sender) {
 				return i;
 			}
@@ -61,7 +61,7 @@ contract Queue {
 	 * limit is up
 	 */
 	function checkTime() {
-		if(
+		if (
 			currentSize > 0 && 
 			participantsList[0].t + timeLimit < now) 
 		{
